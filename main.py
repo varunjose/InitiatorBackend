@@ -1,4 +1,12 @@
 # main.py
+import os
+from google.cloud import bigquery
+
+# ✅ Set the environment variable explicitly (REQUIRED for Render)
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/etc/secrets/tourismrecommender-93df7478854c.json"
+
+# ✅ Now GCP client will find the credentials
+client = bigquery.Client()
 
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -7,15 +15,6 @@ import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer, util
 from typing import Optional
-import os
-from google.cloud import bigquery
-
-# Tell Google client where to find your Render-mounted secret
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/etc/secrets/tourismrecommender-93df7478854c.json"
-
-client = bigquery.Client()
-
-
 
 app = FastAPI()
 
