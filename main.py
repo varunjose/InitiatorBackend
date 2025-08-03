@@ -3,7 +3,7 @@ import os
 from google.cloud import bigquery
 
 # ✅ Set the environment variable explicitly (REQUIRED for Render)
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/etc/secrets/tourismrecommender-93df7478854c.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/etc/secrets/tourismrecommender-e08910be32e8.json"
 
 # ✅ Now GCP client will find the credentials
 client = bigquery.Client()
