@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+google-cloud-bigquery
+sentence-transformers
+tf-keras
+numpy
+pandas
+fuzzywuzzy
+python-Levenshtein 
