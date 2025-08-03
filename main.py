@@ -7,6 +7,15 @@ import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer, util
 from typing import Optional
+import os
+from google.cloud import bigquery
+
+# Tell Google client where to find your Render-mounted secret
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/etc/secrets/tourismrecommender-93df7478854c.json"
+
+client = bigquery.Client()
+
+
 
 app = FastAPI()
 
@@ -21,7 +30,6 @@ app.add_middleware(
 # ──────────────────────────────────────────────────────────────────────────────
 
 # 1) LOAD & PREP DATA ─────────────────────────────────────────────────────────
-client = bigquery.Client()
 query = """
 SELECT id, name, address, city, state, zipcode, rating,
        reviews, categories, broader_category, Weighted_Score, lat, lon
